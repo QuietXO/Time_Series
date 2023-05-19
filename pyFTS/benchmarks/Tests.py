@@ -39,10 +39,9 @@ def real_predictions(model, test_data, step=1, show_chart=True):
     :param show_chart: show the final chart
     :return: list of predictions
     """
-    forecasts = [model.predict(test_data[0:step])[-1]]
-    for _ in range(len(test_data)-1):
-        forecasts.append(model.predict([forecasts[-1]])[-1])
-    forecasts.insert(0, test_data[0])
+    forecasts = test_data[0:step]
+    for _ in range(len(test_data)):
+        forecasts.append(model.predict(forecasts[-step:])[-1])
 
     if show_chart:
         plt.subplots(nrows=1, ncols=1, figsize=[15, 5])
@@ -54,7 +53,7 @@ def real_predictions(model, test_data, step=1, show_chart=True):
         plt.legend(handles=[orig, pred])
         plt.show()
 
-    return forecasts
+    return forecasts[(step-1):]
 
 
 def BoxPierceStatistic(data, h):
