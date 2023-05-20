@@ -6,11 +6,12 @@ import matplotlib.pyplot as plt
 from pyFTS.benchmarks.Measures import acf
 
 
-def point_predictions(model, test_data, show_chart=True):
+def point_predictions(model, test_data, step=1, show_chart=True):
     """
     Testing the model by feeding the next data size
     :param model: model does the prediction
     :param test_data: will be tested on
+    :param step: how many data is needed to be fed into model
     :param show_chart: show the final chart
     :return: list of predictions
     """
@@ -20,7 +21,7 @@ def point_predictions(model, test_data, show_chart=True):
     if show_chart:
         plt.subplots(nrows=1, ncols=1, figsize=[15, 5])
 
-        orig, = plt.plot(test_data, label='Original data', color='green')
+        orig, = plt.plot(test_data[(step-1):], label='Original data', color='green')
         pred, = plt.plot(forecasts, label='Forecasts', color='red')
 
         plt.grid(linestyle='--', linewidth=0.5)
@@ -40,13 +41,13 @@ def real_predictions(model, test_data, step=1, show_chart=True):
     :return: list of predictions
     """
     forecasts = test_data[0:step]
-    for _ in range(len(test_data)):
+    for _ in range(len(test_data) - step + 1):
         forecasts.append(model.predict(forecasts[-step:])[-1])
 
     if show_chart:
         plt.subplots(nrows=1, ncols=1, figsize=[15, 5])
 
-        orig, = plt.plot(test_data, label='Original data', color='green')
+        orig, = plt.plot(test_data[(step-1):], label='Original data', color='green')
         pred, = plt.plot(forecasts, label='Forecasts', color='red')
 
         plt.grid(linestyle='--', linewidth=0.5)
