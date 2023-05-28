@@ -15,20 +15,20 @@ def point_predictions(model, test_data, step=1, show_chart=True):
     :param show_chart: show the final chart
     :return: list of predictions
     """
-    forecasts = model.predict(test_data)
-    forecasts.insert(0, test_data[0])
+    forecasts = test_data[:step]
+    forecasts += (model.predict(test_data))
 
     if show_chart:
         plt.subplots(nrows=1, ncols=1, figsize=[15, 5])
 
-        orig, = plt.plot(test_data[(step-1):], label='Original data', color='green')
-        pred, = plt.plot(forecasts, label='Forecasts', color='red')
+        orig, = plt.plot(test_data, label='Original data', color='green')
+        pred, = plt.plot(forecasts[:len(test_data)], label='Forecasts', color='red')
 
         plt.grid(linestyle='--', linewidth=0.5)
         plt.legend(handles=[orig, pred])
         plt.show()
 
-    return forecasts
+    return forecasts[:len(test_data)]
 
 
 def real_predictions(model, test_data, step=1, show_chart=True):
@@ -42,19 +42,19 @@ def real_predictions(model, test_data, step=1, show_chart=True):
     """
     forecasts = test_data[0:step]
     for _ in range(len(test_data) - step + 1):
-        forecasts.append(model.predict(forecasts[-step:])[-1])
+        forecasts += model.predict(forecasts[-step:])
 
     if show_chart:
         plt.subplots(nrows=1, ncols=1, figsize=[15, 5])
 
-        orig, = plt.plot(test_data[(step-1):], label='Original data', color='green')
-        pred, = plt.plot(forecasts, label='Forecasts', color='red')
+        orig, = plt.plot(test_data, label='Original data', color='green')
+        pred, = plt.plot(forecasts[:len(test_data)], label='Forecasts', color='red')
 
         plt.grid(linestyle='--', linewidth=0.5)
         plt.legend(handles=[orig, pred])
         plt.show()
 
-    return forecasts[(step-1):]
+    return forecasts[:len(test_data)]
 
 
 def BoxPierceStatistic(data, h):
