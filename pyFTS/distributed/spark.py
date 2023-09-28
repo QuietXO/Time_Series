@@ -255,7 +255,7 @@ def share_parameters(model, context, data):
 
     :param model: the FTS model to extract the parameters and hyperparameters
     :param context: Spark context
-    :param data: dataset
+    :param data: data
     :return: the shared variable with the dictionary of parameters
     """
     parameters = {}

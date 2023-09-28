@@ -15,7 +15,7 @@ def get_data(field: str="avg") -> np.ndarray:
     """
     Get a simple univariate time series data.
 
-    :param field: the dataset field name to extract
+    :param field: the data field name to extract
     :return: numpy array
     """
     dat = get_dataframe()

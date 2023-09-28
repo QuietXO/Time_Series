@@ -76,14 +76,14 @@ datasets['Malaysia.load'] = malaysia["load"].values
 
 windows = [600000, 600000, 10000, 10000]
 
-for ct, (dataset_name, dataset) in enumerate(datasets.items()):
-    bchmk.train_test_time(dataset, windowsize=windows[ct], train=0.9, inc=.5,
+for ct, (dataset_name, data) in enumerate(datasets.items()):
+    bchmk.train_test_time(data, windowsize=windows[ct], train=0.9, inc=.5,
                      methods=[pwfts.ProbabilisticWeightedFTS],
                      order=2,
                      partitions=50,
                      steps=cpus,
                      num_batches=cpus,
                      distributed='dispy', nodes=['192.168.0.110', '192.168.0.107','192.168.0.106'],
-                     file="experiments.db", dataset=dataset_name,
+                     file="experiments.db", data=dataset_name,
                      tag="speedup")
 '''

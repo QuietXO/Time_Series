@@ -69,15 +69,15 @@ detrend = trend.apply(data)
 plt.plot(trend.inverse(detrend, data))
 '''
 
-#dataset = pd.read_csv('https://query.data.world/s/nxst4hzhjrqld4bxhbpn6twmjbwqk7')
-#dataset['data'] = pd.to_datetime([str(y)+'-'+str(m) for y,m in zip(dataset['Ano'].values, dataset['Mes'].values)],
+#data = pd.read_csv('https://query.data.world/s/nxst4hzhjrqld4bxhbpn6twmjbwqk7')
+#data['data'] = pd.to_datetime([str(y)+'-'+str(m) for y,m in zip(data['Ano'].values, data['Mes'].values)],
 #                                  format='%Y-%m')
 roi = Transformations.ROI()
 
 '''
 
-train = dataset['Total'].values[:30]
-test = dataset['Total'].values[30:]
+train = data['Total'].values[:30]
+test = data['Total'].values[30:]
 
 fs = Grid.GridPartitioner(data=train, npart=5, transformation=roi)
 
@@ -96,8 +96,8 @@ ax.plot(test)
 '''
 
 '''
-train = dataset.iloc[:30]
-test = dataset.iloc[30:]
+train = data.iloc[:30]
+test = data.iloc[30:]
 
 from pyFTS.models.multivariate import common, variable, mvfts, wmvfts, granular
 from pyFTS.partitioners import Grid, Entropy
@@ -130,7 +130,7 @@ ax.plot(forecast)
 
 plt.show()
 
-print(dataset)
+print(data)
 '''
 
 eto = pd.read_csv('https://raw.githubusercontent.com/PatriciaLucas/Evapotranspiracao/master/ETo_setelagoas.csv', sep=',')

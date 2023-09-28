@@ -45,7 +45,7 @@ def insert_hyperparam(data, conn):
 
     :param data: a tuple with the benchmark data with format:
 
-    Dataset: Identify on which dataset the dataset was performed
+    Dataset: Identify on which data the data was performed
     Tag: a user defined word that indentify a benchmark set
     Model: FTS model
     Transformation: The name of data transformation, if one was used

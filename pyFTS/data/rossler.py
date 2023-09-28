@@ -16,7 +16,7 @@ def get_data(var: str, a: float = 0.2, b: float = 0.2, c: float = 5.7, dt: float
     """
     Get a simple univariate time series data.
 
-    :param var: the dataset field name to extract
+    :param var: the data field name to extract
     :return: numpy array
     """
     return get_dataframe(a, b, c, dt, initial_values, iterations)[var].values

@@ -85,7 +85,7 @@ def multivariate_sliding_window_benchmarks2(data, windowsize, train=0.8, **kwarg
     from pyFTS.models.multivariate import common, variable, mvfts
 
     tag = __pop('tag', None, kwargs)
-    dataset = __pop('dataset', None, kwargs)
+    dataset = __pop('data', None, kwargs)
 
     distributed = __pop('distributed', False, kwargs)
 
@@ -182,7 +182,7 @@ def multivariate_sliding_window_benchmarks2(data, windowsize, train=0.8, **kwarg
 
 def sliding_window_benchmarks2(data, windowsize, train=0.8, **kwargs):
     tag = __pop('tag', None, kwargs)
-    dataset = __pop('dataset', None, kwargs)
+    dataset = __pop('data', None, kwargs)
 
     distributed = __pop('distributed', False, kwargs)
 
@@ -317,7 +317,7 @@ def sliding_window_benchmarks(data, windowsize, train=0.8, **kwargs):
     :keyword benchmark_methods_parameters:  a list with Non FTS models parameters. The default is None.
     :keyword benchmark_models: A boolean value indicating if external FTS methods will be used on benchmark. The default is False.
     :keyword build_methods: A boolean value indicating if the default FTS methods will be used on benchmark. The default is True.
-    :keyword dataset: the dataset name to identify the current set of benchmarks results on database.
+    :keyword dataset: the data name to identify the current set of benchmarks results on database.
     :keyword distributed: A boolean value indicating if the forecasting procedure will be distributed in a dispy cluster. . The default is False
     :keyword file: file path to save the results. The default is benchmarks.db.
     :keyword inc: a float on interval [0,1] indicating the percentage of the windowsize to move the window
@@ -337,7 +337,7 @@ def sliding_window_benchmarks(data, windowsize, train=0.8, **kwargs):
     """
 
     tag = __pop('tag', None, kwargs)
-    dataset = __pop('dataset', None, kwargs)
+    dataset = __pop('data', None, kwargs)
 
     distributed = __pop('distributed', False, kwargs)
 
@@ -1130,7 +1130,7 @@ def process_point_jobs(dataset, tag,  job, conn):
     """
     Extract information from a dictionary with point benchmark results and save it on a database
 
-    :param dataset: the benchmark dataset name
+    :param dataset: the benchmark data name
     :param tag: alias for the benchmark group being executed
     :param job: a dictionary with the benchmark results
     :param conn: a connection to a Sqlite database
@@ -1146,7 +1146,7 @@ def process_point_jobs2(dataset, tag,  job, conn):
     """
     Extract information from a dictionary with point benchmark results and save it on a database
 
-    :param dataset: the benchmark dataset name
+    :param dataset: the benchmark data name
     :param tag: alias for the benchmark group being executed
     :param job: a dictionary with the benchmark results
     :param conn: a connection to a Sqlite database
@@ -1179,7 +1179,7 @@ def process_interval_jobs(dataset, tag, job, conn):
     """
     Extract information from an dictionary with interval benchmark results and save it on a database
 
-    :param dataset: the benchmark dataset name
+    :param dataset: the benchmark data name
     :param tag: alias for the benchmark group being executed
     :param job: a dictionary with the benchmark results
     :param conn: a connection to a Sqlite database
@@ -1218,7 +1218,7 @@ def process_probabilistic_jobs(dataset, tag,  job, conn):
     """
     Extract information from an dictionary with probabilistic benchmark results and save it on a database
 
-    :param dataset: the benchmark dataset name
+    :param dataset: the benchmark data name
     :param tag: alias for the benchmark group being executed
     :param job: a dictionary with the benchmark results
     :param conn: a connection to a Sqlite database
@@ -1234,7 +1234,7 @@ def process_probabilistic_jobs2(dataset, tag,  job, conn):
     """
     Extract information from an dictionary with probabilistic benchmark results and save it on a database
 
-    :param dataset: the benchmark dataset name
+    :param dataset: the benchmark data name
     :param tag: alias for the benchmark group being executed
     :param job: a dictionary with the benchmark results
     :param conn: a connection to a Sqlite database
@@ -1630,7 +1630,7 @@ def train_test_time(data, windowsize, train=0.8, **kwargs):
 
     tag = __pop('tag', None, kwargs)
     steps = __pop('steps', 0, kwargs)
-    dataset = __pop('dataset', None, kwargs)
+    dataset = __pop('data', None, kwargs)
 
     partitions = __pop('partitions', 10, kwargs)
 
@@ -1686,7 +1686,7 @@ def distributed_model_train_test_time(models, data, windowsize, train=0.8, **kwa
 
     tag = __pop('tag', None, kwargs)
     num_batches = kwargs.get('num_batches', 1)
-    dataset = __pop('dataset', None, kwargs)
+    dataset = __pop('data', None, kwargs)
 
     file = kwargs.get('file', "benchmarks.db")
 

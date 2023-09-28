@@ -12,11 +12,11 @@ def get_dataframe(filename: str, url: str, sep:str=";", compression:str='infer')
     This method check if filename already exists, read the file and return its data.
     If the file don't already exists, it will be downloaded and decompressed.
 
-    :param filename: dataset local filename
-    :param url: dataset internet URL
+    :param filename: data local filename
+    :param url: data internet URL
     :param sep: CSV field separator
     :param compression: type of compression
-    :return:  Pandas dataset
+    :return:  Pandas data
     """
 
     tmp_file = Path(filename)

@@ -118,7 +118,7 @@ def format_experiment_table(df, exclude=[], replace={}, csv=True, std=False):
         if columns[k] in replace:
             columns[k] = replace[columns[k]]
 
-    columns.insert(0, "dataset")
+    columns.insert(0, "data")
 
     if csv:
         header = ""

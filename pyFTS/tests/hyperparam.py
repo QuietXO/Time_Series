@@ -43,7 +43,7 @@ nodes = ['192.168.0.106', '192.168.0.110', '192.168.0.107']
 
 datsetname, dataset  = get_dataset()
 
-#GridSearch.execute(hyperparams, datsetname, dataset, nodes=nodes,
+#GridSearch.execute(hyperparams, datsetname, data, nodes=nodes,
 #                   window_size=10000, train_rate=.9, increment_rate=1,)
 
 explanatory_variables =[
@@ -70,7 +70,7 @@ deho_mv.random_search(datsetname, dataset,
               )
 
 '''
-deho_mv.execute(datsetname, dataset,
+deho_mv.execute(datsetname, data,
               ngen=20, npop=15,psel=0.6, pcross=.5, pmut=.3,
               window_size=2000, train_rate=.9, increment_rate=1,
               experiments=1,
@@ -83,7 +83,7 @@ deho_mv.execute(datsetname, dataset,
               )
 '''
 '''
-ret = Evolutionary.execute(datsetname, dataset,
+ret = Evolutionary.execute(datsetname, data,
                            ngen=30, npop=20,psel=0.6, pcross=.5, pmut=.3,
                            window_size=10000, train_rate=.9, increment_rate=.3,
                            experiments=1,
@@ -92,31 +92,31 @@ ret = Evolutionary.execute(datsetname, dataset,
                            distributed='dispy', nodes=nodes)
 '''
 #res = GridSearch.cluster_method({'mf':1, 'partitioner': 1, 'npart': 10, 'lags':[1], 'alpha': 0.0, 'order': 1},
-#                          dataset, window_size = 10000, train_rate = .9, increment_rate = 1)
+#                          data, window_size = 10000, train_rate = .9, increment_rate = 1)
 
 #print(res)
 
-#Evolutionary.cluster_method(dataset, 70, 20, .8, .3, 1)
+#Evolutionary.cluster_method(data, 70, 20, .8, .3, 1)
 
 """
 from pyFTS.models import hofts
 from pyFTS.partitioners import Grid
 from pyFTS.benchmarks import Measures
 
-fs = Grid.GridPartitioner(data=dataset[:800], npart=30)
+fs = Grid.GridPartitioner(data=data[:800], npart=30)
 
 model = hofts.WeightedHighOrderFTS(partitioner=fs, order=2)
 
-model.fit(dataset[:800])
+model.fit(data[:800])
 
-model.predict(dataset[800:1000])
+model.predict(data[800:1000])
 
-Measures.get_point_statistics(dataset[800:1000], model)
+Measures.get_point_statistics(data[800:1000], model)
 
 print(model)
 
 
-ret = Evolutionary.execute(datsetname, dataset,
+ret = Evolutionary.execute(datsetname, data,
                      ngen=30, npop=20, pcruz=.5, pmut=.3,
                      window_size=800, experiments=30)
                      parameters={'distributed': 'spark', 'url': 'spark://192.168.0.106:7077'})
@@ -133,7 +133,7 @@ data = np.array(SONDA.get_data('glo_avg'))
 
 data =  data[~(np.isnan(data) | np.equal(data, 0.0))]
 
-dataset = data[:1000000]
+data = data[:1000000]
 
 del(data)
 
@@ -141,7 +141,7 @@ del(data)
 
 import pandas as pd
 df = pd.read_csv('https://query.data.world/s/i7eb73c4rluf2luasppsyxaurx5ol7', sep=';')
-dataset = df['glo_avg'].values
+data = df['glo_avg'].values
 
 from pyFTS.models import hofts
 from pyFTS.partitioners import Grid
@@ -155,7 +155,7 @@ t1 = time()
 
 
 
-Evolutionary.execute('SONDA', dataset,
+Evolutionary.execute('SONDA', data,
                      ngen=20, mgen=5, npop=15, pcruz=.5, pmut=.3,
                      window_size=35000, train_rate=.6, increment_rate=1,
                      collect_statistics=True, experiments=5)

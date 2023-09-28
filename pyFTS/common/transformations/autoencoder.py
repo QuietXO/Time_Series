@@ -42,15 +42,15 @@ class AutoencoderTransformation(Transformation):
               param=None,
               **kwargs):
         """
-        Transform a N-dimensional dataset into a n-dimensional dataset, where one dimension is the endogen variable
+        Transform a N-dimensional data into a n-dimensional data, where one dimension is the endogen variable
         If endogen_variable = None, the last column will be the endogen_variable.
         Args:
-            data (pd.DataFrame): N-Dimensional dataset
-            endogen_variable (str):  column of dataset
+            data (pd.DataFrame): N-Dimensional data
+            endogen_variable (str):  column of data
             names (Tuple): names for new columns created by the AutoEncoders Transformation.
             param:
             **kwargs: params of AE's train process
-                percentage_train (float). Percentage of dataset that will be used for train SOM network. default: 0.7
+                percentage_train (float). Percentage of data that will be used for train SOM network. default: 0.7
                 epochs: epochs of SOM network. default: 10000
 
         """

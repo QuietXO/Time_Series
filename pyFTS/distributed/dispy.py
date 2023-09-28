@@ -49,7 +49,7 @@ def simple_model_train(model, data, parameters):
     Cluster function that receives a FTS instance 'model' and train using the 'data' and 'parameters'
 
     :param model: a FTS instance
-    :param data: training dataset
+    :param data: training data
     :param parameters: parameters for the training process
     :return: the trained model
     """

@@ -81,12 +81,12 @@ from pyFTS.models.multivariate import common, variable, mvfts, wmvfts, cmvfts, g
 from pyFTS.models.seasonal import partitioner as seasonal
 from pyFTS.models.seasonal.common import DateTime
 
-dataset = pd.read_csv('/home/petronio/Downloads/kalang.csv', sep=',')
+data = pd.read_csv('/home/petronio/Downloads/kalang.csv', sep=',')
 
-dataset['date'] = pd.to_datetime(dataset["date"], format='%Y-%m-%d %H:%M:%S')
+data['date'] = pd.to_datetime(data["date"], format='%Y-%m-%d %H:%M:%S')
 
-train_mv = dataset.iloc[:24505]
-test_mv = dataset.iloc[24505:]
+train_mv = data.iloc[:24505]
+test_mv = data.iloc[24505:]
 
 sp = {'seasonality': DateTime.minute_of_day, 'names': [str(k)+'hs' for k in range(0,24)]}
 

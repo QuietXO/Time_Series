@@ -475,7 +475,7 @@ def sliding_window(data, windowsize, train=0.8, inc=0.1, **kwargs):
     """
     Sliding window method of cross validation for time series
 
-    :param data: the entire dataset
+    :param data: the entire data
     :param windowsize: window size
     :param train: percentual of the window size will be used for training the models
     :param inc: percentual of data used for slide the window

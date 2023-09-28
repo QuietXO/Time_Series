@@ -157,7 +157,7 @@ bchmk.multivariate_sliding_window_benchmarks2(df, 10000, train=0.9, inc=0.25,
                                               target_variable='Temperature',
                                               type='distribution',
                                               steps_ahead=[1],
-                                              file="experiments.db", dataset='Malaysia.temperature',
+                                              file="experiments.db", data='Malaysia.temperature',
                                               tag="experiments"
                                               )
 

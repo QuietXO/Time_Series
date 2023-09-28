@@ -19,9 +19,9 @@ def execute( dataset, **kwargs):
     :keyword fts_method: The FTS method to optimize
     :keyword parameters: dict with model specific arguments for fts_method
     :keyword random_individual: create an random genotype
-    :keyword evalutation_operator: a function that receives a dataset and an individual and return its fitness
+    :keyword evalutation_operator: a function that receives a data and an individual and return its fitness
     :keyword mutation_operator: a function that receives one individual and return a changed individual
-    :keyword window_size: An integer value with the the length of scrolling window for train/test on dataset
+    :keyword window_size: An integer value with the the length of scrolling window for train/test on data
     :keyword train_rate: A float value between 0 and 1 with the train/test split ([0,1])
     :keyword increment_rate: A float value between 0 and 1 with the the increment of the scrolling window,
              relative to the window_size ([0,1])

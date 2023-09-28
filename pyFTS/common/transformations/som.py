@@ -33,16 +33,16 @@ class SOMTransformation(Transformation):
               param=None,
               **kwargs):
         """
-        Transform a M-dimensional dataset into a 3-dimensional dataset, where one dimension is the endogen variable
+        Transform a M-dimensional data into a 3-dimensional data, where one dimension is the endogen variable
         If endogen_variable = None, the last column will be the endogen_variable.
 
         Args:
-            data (pd.DataFrame): M-Dimensional dataset
-            endogen_variable (str):  column of dataset
+            data (pd.DataFrame): M-Dimensional data
+            endogen_variable (str):  column of data
             names (Tuple): names for new columns created by SOM Transformation.
             param:
             **kwargs: params of SOM's train process
-                percentage_train (float). Percentage of dataset that will be used for train SOM network. default: 0.7
+                percentage_train (float). Percentage of data that will be used for train SOM network. default: 0.7
                 leaning_rate (float): leaning rate of SOM network. default: 0.01
                 epochs: epochs of SOM network. default: 10000
         

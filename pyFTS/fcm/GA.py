@@ -70,7 +70,7 @@ def phenotype(individual, train):
     Instantiate the genotype, creating a fitted model with the genotype hyperparameters
 
     :param individual: a genotype
-    :param train: the training dataset
+    :param train: the training data
     :param parameters: dict with model specific arguments for fit method.
     :return: a fitted FTS model
     """
@@ -87,11 +87,11 @@ def phenotype(individual, train):
 
 def evaluate(dataset, individual, **kwargs):
     """
-    Evaluate an individual using a sliding window cross validation over the dataset.
+    Evaluate an individual using a sliding window cross validation over the data.
 
-    :param dataset: Evaluation dataset
+    :param dataset: Evaluation data
     :param individual: genotype to be tested
-    :param window_size: The length of scrolling window for train/test on dataset
+    :param window_size: The length of scrolling window for train/test on data
     :param train_rate: The train/test split ([0,1])
     :param increment_rate: The increment of the scrolling window, relative to the window_size ([0,1])
     :param parameters: dict with model specific arguments for fit method.
@@ -241,7 +241,7 @@ def GeneticAlgorithm(dataset, **kwargs):
     :param npop: Population size
     :param pcruz: Probability of crossover
     :param pmut: Probability of mutation
-    :param window_size: The length of scrolling window for train/test on dataset
+    :param window_size: The length of scrolling window for train/test on data
     :param train_rate: The train/test split ([0,1])
     :param increment_rate: The increment of the scrolling window, relative to the window_size ([0,1])
     :param parameters: dict with model specific arguments for fit method.

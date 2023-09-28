@@ -58,7 +58,7 @@ def insert_benchmark(data, conn):
 
     ID: integer incremental primary key
     Date: Date/hour of benchmark execution
-    Dataset: Identify on which dataset the dataset was performed
+    Dataset: Identify on which data the data was performed
     Tag: a user defined word that indentify a benchmark set
     Type: forecasting type (point, interval, distribution)
     Model: FTS model
@@ -87,7 +87,7 @@ def process_common_data(dataset, tag, type, job):
     """
     Wraps benchmark information on a tuple for sqlite database
 
-    :param dataset: benchmark dataset
+    :param dataset: benchmark data
     :param tag: benchmark set alias
     :param type: forecasting type
     :param job: a dictionary with benchmark data
@@ -112,7 +112,7 @@ def process_common_data2(dataset, tag, type, job):
     """
     Wraps benchmark information on a tuple for sqlite database
 
-    :param dataset: benchmark dataset
+    :param dataset: benchmark data
     :param tag: benchmark set alias
     :param type: forecasting type
     :param job: a dictionary with benchmark data

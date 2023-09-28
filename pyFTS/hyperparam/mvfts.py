@@ -168,11 +168,11 @@ def phenotype_mf(params):
 
 def evaluate(dataset, individual, **kwargs):
     """
-    Evaluate an individual using a sliding window cross validation over the dataset.
+    Evaluate an individual using a sliding window cross validation over the data.
 
-    :param dataset: Evaluation dataset
+    :param dataset: Evaluation data
     :param individual: genotype to be tested
-    :param window_size: The length of scrolling window for train/test on dataset
+    :param window_size: The length of scrolling window for train/test on data
     :param train_rate: The train/test split ([0,1])
     :param increment_rate: The increment of the scrolling window, relative to the window_size ([0,1])
     :param parameters: dict with model specific arguments for fit method.
@@ -434,7 +434,7 @@ def execute(datasetname, dataset, **kwargs):
     :keyword parameters: dict with model specific arguments for fts_method
     :keyword elitism: A boolean value indicating if the best individual must always survive to next population
     :keyword selection_operator: a function that receives the whole population and return a selected individual
-    :keyword window_size: An integer value with the the length of scrolling window for train/test on dataset
+    :keyword window_size: An integer value with the the length of scrolling window for train/test on data
     :keyword train_rate: A float value between 0 and 1 with the train/test split ([0,1])
     :keyword increment_rate: A float value between 0 and 1 with the the increment of the scrolling window,
              relative to the window_size ([0,1])

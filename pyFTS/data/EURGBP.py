@@ -14,7 +14,7 @@ def get_data(field:str='avg') -> np.ndarray:
     """
     Get the univariate time series data.
 
-    :param field: dataset field to load
+    :param field: data field to load
     :return: numpy array
     """
     dat = get_dataframe()
